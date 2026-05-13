@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        const THEME_KEY = "pms_theme"; 
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        const initialTheme = savedTheme 
+                             ? savedTheme 
+                             : (window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
+
+        if (initialTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1a1a1a" />
+    
+    <title>Kittuu | School Management Software & ERP System</title>
+    <meta name="description" content="Streamline your school with Kittuu: the premier management software for student tracking, teacher management, and parent engagement." />
+    <meta name="keywords" content="school management software, ERP system, student management, teacher management, education software, kittuu" />
+    <meta name="author" content="Kittuu" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kittuu | Transform Your School Operations" />
+    <meta property="og:description" content="An intelligent ERP system designed for modern education. Manage students, teachers, and classes seamlessly with Kittuu." />
+    <meta property="og:image" content="logo192.png" /> 
+    <meta property="og:url" content="https://www.kittuu.com" />
+    <meta property="og:site_name" content="Kittuu" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kittuu | Modern School Management Software" />
+    <meta name="twitter:description" content="Boost efficiency and parent satisfaction with our all-in-one school management system. Explore the Kittuu difference." />
+    <meta name="twitter:image" content="logo192.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kittuu",
+      "operatingSystem": "Web, Cloud-based",
+      "applicationCategory": "EducationalApplication",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1250"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
