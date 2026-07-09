@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import useAuth from "../Hook/useAuth";
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +15,7 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
   const { loginUser } = useAuth();
 
   // Load saved credentials if "Remember Me" was used
@@ -28,6 +28,18 @@ const Login = () => {
       setRememberMe(true);
     }
   }, []);
+
+  // Check for credentials in URL query parameters for auto-fill
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const urlEmail = queryParams.get("email");
+    const urlPassword = queryParams.get("password");
+
+    if (urlEmail && urlPassword) {
+      setEmail(urlEmail);
+      setPassword(urlPassword);
+    }
+  }, [location.search]);
 
   // Email validation
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
